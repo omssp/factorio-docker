@@ -41,3 +41,19 @@ sudo docker run -d \
 
 sudo docker logs --follow factorio13
 ```
+
+```
+sudo docker build --build-arg VERSION=2.0.14 --build-arg SHA256=5a4bc4c3b2a97ed1fc58eb796321e848dcc64435bd91013dd9c78a14a8ce8815 -t factorio14sa .
+
+sudo docker run -d \
+  --name factorio14sa \
+  -p 34197:34197/udp \
+  -v ./ffiles:/factorio \
+  -e GENERATE_NEW_SAVE=false \
+  -e SAVE_NAME=omssp \
+  -e DLC_SPACE_AGE=true \
+  -e UPDATE_MODS_ON_START=false \
+  factorio14sa
+
+sudo docker logs --follow factorio14sa
+```
